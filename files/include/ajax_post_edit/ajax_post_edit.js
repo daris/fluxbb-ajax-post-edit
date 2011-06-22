@@ -22,7 +22,10 @@ function ape_show_menu(id)
 	menu.onmouseover = function () {ape_menu_hovered = true}
 	menu.onmouseout = function () {ape_menu_hovered = false}
 
-	var edit_url = base_url + '/edit.php?id=' + id;
+	if ('edit_url' in ape)
+		var edit_url = base_url + '/' + ape['edit_url'].replace('$1', id);
+	else
+		var edit_url = base_url + '/edit.php?id=' + id;
 	
 	menu.innerHTML =
 		'<ul>' +

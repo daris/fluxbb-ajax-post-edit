@@ -64,6 +64,8 @@ if (basename($_SERVER['PHP_SELF']) == 'viewtopic.php')
 	$ape .= ', \'Quick edit\' : \''.$lang_ape['Quick Edit'].'\'';
 	$ape .= ', \'Full edit\' : \''.$lang_ape['Full Edit'].'\'';
 	$ape .= ', \'Cancel edit confirm\' : \''.$lang_ape['Cancel edit confirm'].'\'';
+	if (isset($GLOBALS['forum_url'])) // friendly url integration
+		$ape .= ', \'edit_url\' : \''.$GLOBALS['forum_url']['edit'].'\'';
 	$ape .= '}';
 	
 	$page_head['ape'] = '<script type="text/javascript">'."\n".$ape."\n".'</script>';
