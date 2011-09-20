@@ -3,7 +3,7 @@
 ##        Mod title:  Ajax Post Edit
 ##
 ##      Mod version:  1.6.2
-##  Works on FluxBB:  1.4.6, 1.4.5, 1.4.4
+##  Works on FluxBB:  1.4.7, 1.4.6
 ##     Release date:  2011-04-22
 ##      Review date:  YYYY-MM-DD (Leave unedited)
 ##           Author:  Daris (daris91@gmail.com)
@@ -44,7 +44,8 @@ header.php
 #-------------[ 3. FIND ]----
 #
 
-echo implode("\n", $page_head)."\n";
+if (isset($page_head))
+	echo implode("\n", $page_head)."\n";
 
 #
 #-------------[ 4. BEFORE, ADD ]----------------
