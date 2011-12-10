@@ -2,10 +2,9 @@
 ##
 ##        Mod title:  Ajax Post Edit
 ##
-##      Mod version:  1.6.2
+##      Mod version:  1.6.3
 ##  Works on FluxBB:  1.4.7, 1.4.6
-##     Release date:  2011-04-22
-##      Review date:  YYYY-MM-DD (Leave unedited)
+##     Release date:  2011-12-10
 ##           Author:  Daris (daris91@gmail.com)
 ##
 ##      Description:  This modification allows edit post without refreshing page (using ajax)
@@ -18,7 +17,7 @@
 ##       Affects DB:  No
 ##
 ##       DISCLAIMER:  Please note that "mods" are not officially supported by
-##                    FluxBB. Installation of this modification is done at 
+##                    FluxBB. Installation of this modification is done at
 ##                    your own risk. Backup your forum database and any and
 ##                    all applicable files before proceeding.
 ##
@@ -54,12 +53,12 @@ if (isset($page_head))
 if (basename($_SERVER['PHP_SELF']) == 'viewtopic.php')
 {
 	$page_head['jquery'] = '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>';
-	
+
 	if (file_exists(PUN_ROOT.'lang/'.$pun_user['language'].'/ajax_post_edit.php'))
 		require PUN_ROOT.'lang/'.$pun_user['language'].'/ajax_post_edit.php';
 	else
 		require PUN_ROOT.'lang/English/ajax_post_edit.php';
-	
+
 	$ape = 'var base_url = \''.$pun_config['o_base_url'].'\';';
 	$ape .= "\n".'var ape = {\'Loading\' : \''.$lang_ape['Loading'].'\'';
 	$ape .= ', \'Quick edit\' : \''.$lang_ape['Quick Edit'].'\'';
@@ -68,7 +67,7 @@ if (basename($_SERVER['PHP_SELF']) == 'viewtopic.php')
 	if (isset($GLOBALS['forum_url'])) // friendly url integration
 		$ape .= ', \'edit_url\' : \''.$GLOBALS['forum_url']['edit'].'\'';
 	$ape .= '}';
-	
+
 	$page_head['ape'] = '<script type="text/javascript">'."\n".$ape."\n".'</script>';
 	$page_head['ape_js'] = '<script type="text/javascript" src="include/ajax_post_edit/ajax_post_edit.js"></script>';
 	$page_head['ape_css'] = '<link rel="stylesheet" type="text/css" href="include/ajax_post_edit/style.css" />';
@@ -91,7 +90,7 @@ viewtopic.php
 #-------------[ 7. REPLACE WITH ]----------------
 #
 
-				if ($pun_user['g_edit_posts'] == '1') 
+				if ($pun_user['g_edit_posts'] == '1')
 					$post_actions[] = '<li class="postedit"><span id="menu'.$cur_post['id'].'"><a onmouseover="ape_menu_hovered = true;" onmouseout="ape_menu_hovered = false;" onclick="if (ape_show_menu('.$cur_post['id'].')) {return true;} else {return false;}" href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a></span></li>';
 
 #
