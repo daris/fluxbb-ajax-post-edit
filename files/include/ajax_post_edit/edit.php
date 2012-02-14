@@ -57,7 +57,7 @@ if ($action == "get" && $id > 0)
 <form id="ape-edit" class="form-ape" method="post" action="edit.php?id=<?php echo $id ?>&amp;action=edit" onsubmit="return process_form(this)">
 	<input type="hidden" name="form_sent" value="1" />
 	<input type="hidden" name="preview" value="1" />
-	
+
 	<div class="ape-label">
 		<textarea id="ape-message" name="req_message" rows="17" style="width: 98%" tabindex="<?php echo $cur_index++ ?>"><?php echo pun_htmlspecialchars(isset($_POST['req_message']) ? $message : $cur_post['message']) ?></textarea>
 	</div>
@@ -80,13 +80,13 @@ if ($action == "get" && $id > 0)
 
 </form>
 <!-- END FORM -->
-		
+
 <parsed_message><?php echo parse_message($cur_post['message'], $cur_post['hide_smilies']) ?></parsed_message>
 <?php
 
 
 }
-elseif ($action == "update" && isset($_POST['req_message']) && $id > 0) 
+elseif ($action == "update" && isset($_POST['req_message']) && $id > 0)
 {
 	// Clean up message from POST
 	$message = pun_linebreaks(pun_trim($_POST['req_message']));
@@ -114,7 +114,7 @@ elseif ($action == "update" && isset($_POST['req_message']) && $id > 0)
 				$errors[] = $lang_post['No message after censoring'];
 		}
 	}
-	
+
 	if (empty($errors))
 	{
 		$edited_sql = '';
@@ -124,10 +124,10 @@ elseif ($action == "update" && isset($_POST['req_message']) && $id > 0)
 			$cur_post['edited_by'] = $pun_user['username'];
 			$edited_sql = ', edited='.$cur_post['edited'].', edited_by=\''.$db->escape($pun_user['username']).'\'';
 		}
-		
+
 		require PUN_ROOT.'include/search_idx.php';
 		update_search_index('edit', $id, $message);
-		
+
 		// Update the post
 		$db->query('UPDATE '.$db->prefix.'posts SET message=\''.$db->escape($message).'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post info', __FILE__, __LINE__, $db->error());
 
