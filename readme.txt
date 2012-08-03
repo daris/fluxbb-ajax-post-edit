@@ -2,9 +2,9 @@
 ##
 ##        Mod title:  Ajax Post Edit
 ##
-##      Mod version:  1.6.3
-##  Works on FluxBB:  1.4.7, 1.4.6
-##     Release date:  2011-12-10
+##      Mod version:  1.6.4
+##  Works on FluxBB:  1.5.0, 1.5-beta, 1.4.9, 1.4.8, 1.4.7
+##     Release date:  2012-08-03
 ##           Author:  Daris (daris91@gmail.com)
 ##
 ##      Description:  This modification allows edit post without refreshing page (using ajax)
